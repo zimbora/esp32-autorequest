@@ -77,3 +77,22 @@ uint32_t AUTOREQUEST::now(){
   return getTimestamp();
 };
 #endif
+
+
+void AUTOREQUEST::list(){
+	#ifndef UNITTEST
+	serializeJson(doc_ar,*serial);
+	#endif
+}
+
+JsonObject AUTOREQUEST::get(String ref){
+	JsonObject object;
+	if(doc_ar.containsKey(ref)){
+		#ifndef UNITTEST
+		object = doc_ar[ref].as<JsonObject>();
+		#else
+		object = doc_ar[ref];
+		#endif
+	}
+	return object;
+}

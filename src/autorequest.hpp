@@ -45,6 +45,8 @@ class AUTOREQUEST {
 
     //  @period - seconds
     bool add(String ref, uint32_t period);
+    void list();
+    JsonObject get(String ref);
   private:
     #ifdef UNITTEST
     uint32_t now();
