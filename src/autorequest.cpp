@@ -17,6 +17,9 @@ bool AUTOREQUEST::check(String ref){
 
   if(year() < 2018) return false;  // clock isn't sync(ed)
 
+  if(!doc_ar.containsKey(ref))
+    return false;
+    
   uint32_t timeout = doc_ar[ref]["timeout"];
   int16_t period = doc_ar[ref]["period"];
 

@@ -4,7 +4,8 @@
 AUTOREQUEST Ar(&Serial);
 //AUTOREQUEST Ar;
 
-String ref = "sensor1";
+String ref1 = "sensor1";
+String ref2 = "sensor2";
 void setup() {
   // put your setup code here, to run once:
 
@@ -22,7 +23,7 @@ void setup() {
 
   setTime(h, m, s, d, mo, y);
 
-  if(!Ar.add(ref,15)){
+  if(!Ar.add(ref1,15)){
     Serial.println("!! autorequest not added");
   }
 
@@ -31,9 +32,14 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  if(Ar.check(ref)){
+  if(Ar.check(ref1)){
     Serial.printf("now: %lu \n",now());
-    Serial.println(ref+" execute action..\n");
+    Serial.println(ref1+" execute action..\n");
+  }
+
+  if(Ar.check(ref2)){
+    Serial.printf("now: %lu \n",now());
+    Serial.println(ref2+" execute action..\n");
   }
 
   delay(3000);
