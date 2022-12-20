@@ -15,11 +15,9 @@ bool AUTOREQUEST::check(String ref,bool(*execute)(String ref)){
 
 bool AUTOREQUEST::check(String ref){
 
-  if(year() < 2018) return false;  // clock isn't sync(ed)
-
   if(!doc_ar.containsKey(ref))
     return false;
-    
+
   uint32_t timeout = doc_ar[ref]["timeout"];
   int16_t period = doc_ar[ref]["period"];
 
@@ -33,10 +31,8 @@ bool AUTOREQUEST::check(String ref){
     doc_ar[ref]["timeout"] = timeout;
 
     #ifdef DEBUG_AUTOREQUEST
-    log("timeout: "+String(timeout));
     log("period: "+String(period));
     log("timestamp: "+String(now_) );
-    log("align to: "+String(timeout));
     log("new timeout: "+String(timeout));
     #endif
 

@@ -5,7 +5,7 @@ AUTOREQUEST Ar(&Serial);
 //AUTOREQUEST Ar;
 
 String ref = "sensor1";
-bool (*callback)(String);
+
 bool calledInAutorequest(String ref){
   Serial.println("executing task for ref: "+ref);
   return true;

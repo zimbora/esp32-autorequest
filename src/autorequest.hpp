@@ -39,7 +39,7 @@ class AUTOREQUEST {
     };
 
     // check if it is time to execute the task associated to ref,
-    // int that case call execute callback
+    // in that case call execute callback
     bool check(String ref,bool(*execute)(String ref));
     // check if it is time to execute task associated to ref
     bool check(String ref);
